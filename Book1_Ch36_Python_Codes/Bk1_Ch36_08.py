@@ -57,18 +57,18 @@ def make_ellipses(gmm, ax):
 
         # 绘制半长轴向量
         ax.quiver(gmm.means_[j,0],gmm.means_[j,1],
-                  U[0,0], U[1,0], scale = 5/minor)
+                  U[0,0], U[1,0], scale = 5/major) # edited
 
         # 绘制半短轴向量
         ax.quiver(gmm.means_[j,0],gmm.means_[j,1], 
-                  U[0,1], U[1,1], scale = 5/major)
+                  U[0,1], U[1,1], scale = 5/minor) # edited
         
         # 绘制椭圆
         for scale in np.array([3, 2, 1]):
 
             ell = Ellipse(gmm.means_[j, :2], 
-                          scale*minor, 
-                          scale*major,
+                          scale*major, # edited
+                          scale*minor, # edited
                           angle, 
                           color=rgb[j,:],
                           alpha = 0.18)
